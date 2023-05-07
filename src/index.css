@@ -1,0 +1,14 @@
+:root {
+  --ff: 'Rubik', sans-serif;
+  --fw-r: 400;
+  --fw-m: 500;
+  --fw-b: 700;
+  --fz: 18px;
+
+  --dark-gray: hsl(0, 0%, 59%);
+  --darkest-gray: hsl(0, 0%, 17%);
+}
+/*
+- Mobile: 375px
+- Desktop: 1440px
+*/
