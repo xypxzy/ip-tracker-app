@@ -8,7 +8,6 @@ import 'leaflet/dist/leaflet.css'
 
 import {IState} from "../features/location/getLocationSlice.ts";
 import styled from "styled-components";
-import {ICurIpInitialState} from "../features/location/currentIPSlice.ts";
 import {getLocationByIp} from "../features/location/locationAction.ts";
 import axios from "axios";
 
