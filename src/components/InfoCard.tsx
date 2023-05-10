@@ -3,8 +3,18 @@ import {useSelector} from "react-redux";
 import {IState} from "../features/location/getLocationSlice.ts";
 
 const CardWrapper = styled.div`
-  display: flex;
-  justify-content: center;
+  position: absolute;
+  z-index: 10;
+  
+  width: 940px;
+  height: 140px;
+  
+  left: 50%;
+  right: 50%;
+  
+  margin-left: -470px;
+  margin-top: 180px;
+
 `
 
 const Card = styled.div`
@@ -16,7 +26,7 @@ const Card = styled.div`
   
   background: #fff;
   padding: 10px 20px;
-  border-radius: 20px;
+  border-radius: 15px;
 
 
   @media(max-width: 375px) {

@@ -4,10 +4,12 @@ import {getLocationByIp} from "../features/location/locationAction.ts";
 import {useDispatch} from "react-redux";
 
 const StyledForm = styled.form`
-
 `
 const StyledInput = styled.input`
-
+  width: 290px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px 0 0 10px;
 `
 const StyledSubmit = styled.button`
 

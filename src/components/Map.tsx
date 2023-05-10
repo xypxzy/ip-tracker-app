@@ -12,7 +12,8 @@ import {getLocationByIp} from "../features/location/locationAction.ts";
 import axios from "axios";
 
 const StyledMapContainer = styled(MapContainer)`
-  height: 40rem;
+  height:  ${window.innerHeight - 250}px;
+  z-index: 1;
 `;
 
 
@@ -32,7 +33,7 @@ function Map() {
     const {data} = useSelector((state: Record<string, IState>) => state.location);
     const [position, setPosition] = useState<LatLngExpression>({lat: 98.699739, lng: 52.338097})
 
-     const resCur = async() => {
+    const resCur = async() => {
         const response = await axios.get('https://api.ipify.org?format=json')
          // @ts-ignore
          dispatch(getLocationByIp(response.data.ip))
@@ -50,7 +51,7 @@ function Map() {
 
     return (
         <>
-            <StyledMapContainer center={position} zoom={14} scrollWheelZoom={true}>
+            <StyledMapContainer  center={position} zoom={14} scrollWheelZoom={true}>
                 <ChangeView center={position} zoom={14}/>
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
                 <Marker position={position}/>
