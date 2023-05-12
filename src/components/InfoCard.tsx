@@ -7,7 +7,6 @@ const CardWrapper = styled.div`
   z-index: 10;
   
   width: 940px;
-  height: 140px;
   
   left: 50%;
   right: 50%;
@@ -17,58 +16,53 @@ const CardWrapper = styled.div`
 
 `
 
-const Card = styled.div`
+const Card = styled.ul`
   height: 120px;
+  
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   
   background: #fff;
-  padding: 10px 20px;
+  text-align: left;
+
+  margin: 0;
+  padding: 10px 40px;
+  
   border-radius: 15px;
 
-
   @media(max-width: 375px) {
-    height: auto;
+    display: flex;
     flex-direction: column;
-    padding: 30px 40px;
   }
   
 `
 
-const CardEl = styled.span`
+const CardMenuItem = styled.li`
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+    justify-content: start;
     align-items: start;
-    justify-content: center;
     gap: 10px;
-  
-    border-right: 1px solid var(--dark-gray);
-    padding: 0 60px 20px 30px;
+    margin: 0;
+    padding: 25px 10px;
 
-    color: #000;
+    font-family: var(--ff);
+    font-size: 12px;
+    font-weight: var(--fw-b);
+    color: var(--dark-gray);
+
+
+    text-transform: uppercase;
+`
+
+const CardEl = styled.span`
     font-family: var(--ff);
     font-size: var(--fz);
-    font-weight: var(--fw-m);
-  
-    &:last-child {
-      border-right: none;
-    }
-    & span {
-      text-transform: uppercase;
-      color: var(--dark-gray);
-      font-family: var(--ff);
-      font-size: 12px;
-      font-weight: var(--fw-m);
-      letter-spacing: 1px;
-    }
+    font-weight: var(--fw-b);
+    color: #000;
 
-    @media(max-width: 375px) {
-      border-right: none;
-      align-items: center;
-      padding: 10px 40px;
-    }
+    text-transform: none;
   
 `
 
@@ -81,13 +75,22 @@ function InfoCard() {
             {isLoading ?
                 <>IS LOADING.....</> :
                 <Card>
-                    <CardEl>
+                      <CardMenuItem>
                         <span>ip address</span>
-                        {data?.query}
-                    </CardEl>
-                    <CardEl><span>Location</span>{data?.regionName}</CardEl>
-                    <CardEl><span>Timezone</span>{data?.timezone}</CardEl>
-                    <CardEl><span>isp</span>{data?.isp}</CardEl>
+                        <CardEl>{data?.query}</CardEl>
+                      </CardMenuItem>
+                      <CardMenuItem>
+                        <span>Location</span>
+                        <CardEl>{data?.regionName}</CardEl>
+                      </CardMenuItem>
+                      <CardMenuItem>
+                        <span>Timezone</span>
+                        <CardEl>{data?.timezone}</CardEl>
+                      </CardMenuItem>
+                      <CardMenuItem>
+                        <span>isp</span>
+                        <CardEl>{data?.isp}</CardEl>
+                      </CardMenuItem>
                 </Card>
             }
 
