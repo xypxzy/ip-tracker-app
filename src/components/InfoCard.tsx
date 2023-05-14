@@ -67,7 +67,7 @@ const CardEl = styled.span`
 `
 
 function InfoCard() {
-    const {data, error, isLoading} = useSelector((state: Record<string, IState>) => state.location);
+    const {data, isLoading} = useSelector((state: Record<string, IState>) => state.location);
 
 
     return (
